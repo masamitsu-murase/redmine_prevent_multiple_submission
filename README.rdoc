@@ -1,3 +1,26 @@
-= prevent_multiple_submission
+-------------------------------------
+= redmine_prevent_multiple_submission
+-------------------------------------
 
-Description goes here
+This redmine plugin prevents multiple submission of issues.
+
+When an user clicks "Submit" button repeatedly to copy an issue,
+database corruption sometimes occurs.
+Please refer to http://www.redmine.org/issues/6579 or 
+http://www.redmine.org/issues/8537 for more detail.
+
+This plugin disables "Submit" buttons via JavaScript after the 
+button was clicked.
+This plugin prevents only client-side multiple clicks of "Submit" 
+button, but it does not solve this problem fundamentally.
+
+Fundamental solution should be done by modification of redmine core 
+source code.
+
+
+-------------------------------------
+= Change Log
+
+0.0.2   Add readme.rdoc.
+        Refactoring of prevent_multiple_submission_hooks.rb.
+0.0.1   Initial commit
