@@ -2,8 +2,15 @@
 (function(){
     var init_func = function(){
         // for issues and issue_moves
-        var forms = $$("form#issue-form", "form#move_form");
-        var submit_buttons = $$("form#issue-form input[type='submit']", "form#move_form input[type='submit']");
+        var form_css_list = [ "form#issue-form", "form#move_form",
+                              "body.controller-projects.action-new div#content form",
+                              "body.controller-projects.action-create div#content form",
+                              "body.controller-projects.action-copy div#content form",
+                              "body.controller-projects.action-settings div#tab-content-info form",
+                              "body.controller-projects.action-settings div#tab-content-modules form" ];
+        var forms = $$.apply(window, form_css_list);
+        var submit_buttons = $$.apply(window,
+                                      form_css_list.map(function(i){ return i + " input[type='submit']"; }));
 
         var change_button_state = function(enable){
             submit_buttons.each(function(button){
